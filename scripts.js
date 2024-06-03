@@ -3,19 +3,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const content = document.querySelector(".content");
     const projects = document.querySelectorAll(".project");
 
+    // Показываем контент, скрываем loaderWrapper
+    content.style.display = "block";
+    content.style.opacity = "1";
+
     window.addEventListener("load", function() {
         setTimeout(() => {
+            loaderWrapper.style.transition = "opacity 0.5s ease-in-out"; // Уменьшаем продолжительность анимации
             loaderWrapper.style.opacity = "0";
-            loaderWrapper.style.transition = "opacity 1s ease-in-out";
             setTimeout(() => {
                 loaderWrapper.style.display = "none";
-                content.style.display = "block";
-                setTimeout(() => {
-                    content.style.opacity = "1";
-                    animateProjects();
-                }, 50);
-            }, 1000);
-        }, 2000);
+                animateProjects();
+            }, 500); // Уменьшаем продолжительность ожидания перед скрытием loaderWrapper
+        }, 1000); // Уменьшаем общую продолжительность ожидания после загрузки
     });
 
     function animateProjects() {
