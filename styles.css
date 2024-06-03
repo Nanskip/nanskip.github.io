@@ -68,6 +68,17 @@ header h1 {
     padding: 2em 0;
 }
 
+.category {
+    margin-bottom: 2em;
+}
+
+.category h2 {
+    font-size: 2em;
+    border-bottom: 2px solid #1abc9c;
+    padding-bottom: 0.5em;
+    animation: fadeInLeft 1.5s ease-in-out;
+}
+
 .project {
     background: linear-gradient(to right, #34495e, #4ca1af);
     margin: 1.5em 0;
@@ -85,7 +96,7 @@ header h1 {
     background: linear-gradient(to right, #4ca1af, #34495e);
 }
 
-.project h2 {
+.project h3 {
     margin-top: 0;
 }
 
@@ -142,5 +153,16 @@ footer {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
