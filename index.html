@@ -4,106 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nanskip's GitHub Projects</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #34495e;
-            color: #ecf0f1;
-            padding: 1.5em 0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 2em 0;
-        }
-        .project {
-            background-color: #34495e;
-            margin: 1.5em 0;
-            padding: 1.5em;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-        .project:hover {
-            transform: translateY(-5px);
-        }
-        .project h2 {
-            margin-top: 0;
-        }
-        .project a {
-            text-decoration: none;
-            color: #1abc9c;
-        }
-        .project a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            background-color: #34495e;
-            color: #ecf0f1;
-            text-align: center;
-            padding: 1.5em 0;
-            margin-top: 2em;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .social-links a {
-            margin: 0 15px;
-            color: #1abc9c;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-        .social-links a:hover {
-            color: #16a085;
-        }
-        .social-links {
-            margin-bottom: 1em;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Nanskip's GitHub Projects</h1>
-    </header>
-    <div class="container">
-        <section class="project">
-            <h2><a href="https://github.com/Nanskip/space-fly">Space Fly</a></h2>
-            <p>Игра, разработанная с использованием Cubzh. Исследуйте космос и преодолевайте препятствия!</p>
-        </section>
-        <section class="project">
-            <h2><a href="https://github.com/Nanskip/project-cuboid">Project Cuboid</a></h2>
-            <p>Модельный проект для изучения возможностей Cubzh.</p>
-        </section>
-        <section class="project">
-            <h2><a href="https://github.com/Nanskip/tech-game">Tech Game (Convy)</a></h2>
-            <p>Техническая игра, также известная как Convy. Создана с целью демонстрации сложных механик.</p>
-        </section>
-        <section class="project">
-            <h2><a href="https://github.com/Nanskip/convy-2">Convy 2</a></h2>
-            <p>Продолжение игры Convy с новыми функциями и улучшениями.</p>
-        </section>
-        <section class="project">
-            <h2><a href="https://github.com/Nanskip/cubzh-modules">Cubzh Modules</a></h2>
-            <p>Модули для помощи другим разработчикам в создании проектов с использованием Cubzh.</p>
-        </section>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
     </div>
-    <footer>
-        <div class="social-links">
-            <a href="https://www.youtube.com/@Nanskip">YouTube</a> |
-            <a href="https://www.tiktok.com/@nanskip.of">TikTok</a> |
-            <a href="https://t.me/logovoskipa">Telegram</a>
+    <div class="content">
+        <header>
+            <h1>Nanskip's GitHub Projects</h1>
+        </header>
+        <div class="container">
+            <section class="project">
+                <h2><a href="https://github.com/Nanskip/space-fly">Space Fly</a></h2>
+                <p>Игра, разработанная с использованием Cubzh. Исследуйте космос и преодолевайте препятствия!</p>
+            </section>
+            <section class="project">
+                <h2><a href="https://github.com/Nanskip/project-cuboid">Project Cuboid</a></h2>
+                <p>Модельный проект для изучения возможностей Cubzh.</p>
+            </section>
+            <section class="project">
+                <h2><a href="https://github.com/Nanskip/tech-game">Tech Game (Convy)</a></h2>
+                <p>Техническая игра, также известная как Convy. Создана с целью демонстрации сложных механик.</p>
+            </section>
+            <section class="project">
+                <h2><a href="https://github.com/Nanskip/convy-2">Convy 2</a></h2>
+                <p>Продолжение игры Convy с новыми функциями и улучшениями.</p>
+            </section>
+            <section class="project">
+                <h2><a href="https://github.com/Nanskip/cubzh-modules">Cubzh Modules</a></h2>
+                <p>Модули для помощи другим разработчикам в создании проектов с использованием Cubzh.</p>
+            </section>
         </div>
-        <p>&copy; 2024 Nanskip. Все права защищены.</p>
-    </footer>
+        <footer>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@Nanskip">YouTube</a> |
+                <a href="https://www.tiktok.com/@nanskip.of">TikTok</a> |
+                <a href="https://t.me/logovoskipa">Telegram</a>
+            </div>
+            <p>&copy; 2024 Nanskip. Все права защищены.</p>
+        </footer>
+    </div>
+    <script>
+        window.addEventListener("load", function() {
+            document.querySelector(".loader-wrapper").style.display = "none";
+            document.querySelector(".content").style.display = "block";
+        });
+    </script>
 </body>
 </html>
