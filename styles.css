@@ -44,6 +44,8 @@ body {
     display: none;
     overflow: auto;
     height: 100vh;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 header {
@@ -71,12 +73,13 @@ header h1 {
     padding: 1.5em;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .project:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, #4ca1af, #34495e);
 }
 
 .project h2 {
