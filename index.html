@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanskip's Portfolio</title>
+    <title>nanskip.dev</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,7 +11,11 @@
         <pre id="loadingText"></pre>
     </div>
     <div id="console" style="display:none;">
-        <div id="consoleOutput"></div>
+        <div id="consoleOutput" class="console-container">
+            <div id="asciiArt" class="ascii-art"></div>
+            <div id="asciiText" class="ascii-text"></div>
+        </div>
+        <div id="consoleResponse" class="console-response"></div>
         <input type="text" id="consoleInput" autofocus>
     </div>
     <script src="scripts.js"></script>

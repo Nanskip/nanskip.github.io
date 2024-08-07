@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingTextElement = document.getElementById('loadingText');
     const consoleElement = document.getElementById('console');
     const consoleOutputElement = document.getElementById('consoleOutput');
+    const consoleResponseElement = document.getElementById('consoleResponse');
     const consoleInputElement = document.getElementById('consoleInput');
+    consoleInputElement.style.outline = '1px solid gray';
 
     const loadingSteps = [
         'main() = function{}',
@@ -49,15 +51,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setTimeout(updateLoadingText, 1000);
 
+    const colorSymbols = (text) => {
+        // Define colors for different symbols
+        const symbolColors = {
+            '@': 'black',
+            '#': '#133cca',
+            'o': 'lightgray',
+            '-': 'white',
+            '*': 'white',
+            '|': 'white',
+            '=': 'white',
+            '.': 'white',
+            ':': '#ffc2ad',
+            '&': '#fed929',
+            '_': 'white',
+            '\\': 'white',
+            '/': 'white',
+        };
+
+        // Replace each symbol with a span element with the appropriate color
+        return text.replace(/[@#o\-\*\|\=.:&_\\\/]/g, (match) => {
+            const color = symbolColors[match] || 'inherit';
+            return `<span style="color: ${color};">${match}</span>`;
+        });
+    };
+
     const displayWelcomeMessage = () => {
-        const welcomeMessage = `
-        Welcome to Nanskip's portfolio site!
-        Here are some commands you can try:
-        - hello
-        - about
-        - contact
+        const welcomeMessageArt = 
+`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@.====.@@@@@@@.====.@@@@@@@@
+@@@@@@o*####o=.=_=.=o&&&&*o@@@@@@@
+@@@@@@|#########|&&&&&&&&&|@@@@@@@
+@@@@@@|#########|&&&&&&&&&|@@@@@@@
+@@.===|#########|&&&&&&&&&|===.@@@
+@@|:::|#o*****o#|&o*****o&|:::|@@@
+@@|:::|#|:::::|#|=*:::::|&|:::|@@@
+@@|:::|#|:::::*=*:::::::|&|:::|@@@
+@@*===*#\\_.:::::::::::._/&*===*@@@
+@@@@|#####|:::::::::::|&&&&&|@@@@@
+@@@@|#####|:::::::::::|&&&&&|@@@@@
+@@@@*=====*:::::::::::*=====*@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`;
+
+        const welcomeMessageText = `
+<span style="color: lightblue;">root@nanskipDEV</span>
+<span style="color: lightgray;">---------------</span>
+<span style="color: lightblue;">OS: </span><span style="color: lightgray;">IDK OS x14_88</span>
+<span style="color: lightblue;">Host: </span><span style="color: lightgray;">chromium</span>
+<span style="color: lightblue;">Kernel: </span><span style="color: lightgray;">idkernel-69</span>
+<span style="color: lightblue;">Packages: </span><span style="color: lightgray;">0 (it's not an os)</span>
+<span style="color: lightblue;">Shell: </span><span style="color: lightgray;">bash 5.0.18</span>
+<span style="color: lightblue;">Resolution: </span><span style="color: lightgray;">600x900</span>
+<span style="color: lightblue;">Terminal: </span><span style="color: lightgray;">/dev/tmx1</span>
+<span style="color: lightblue;">CPU: </span><span style="color: lightgray;">Intel Bebrium 6900U (1) @ 1.488GHz</span>
+<span style="color: lightblue;">GPU: </span><span style="color: lightgray;">RTX 5090 Super TI Ultra</span>
+<span style="color: lightblue;">Memory: </span><span style="color: lightgray;">2MiB / -256MiB</span>
         `;
-        consoleOutputElement.innerHTML = `<span style="color: lightgreen;">${welcomeMessage}</span>`;
+
+        const styledMessageArt = colorSymbols(welcomeMessageArt);
+
+        document.getElementById('asciiArt').innerHTML = styledMessageArt;
+        document.getElementById('asciiText').innerHTML = welcomeMessageText;
     };
 
     consoleInputElement.addEventListener('keydown', function(event) {
@@ -71,19 +125,46 @@ document.addEventListener('DOMContentLoaded', function() {
     const processCommand = (command) => {
         let response = '';
         switch(command.toLowerCase()) {
+            case 'help':
+                response =
+                `
+All available commands:
+
+    <span style="color: white;">help</span> - show this text
+    <span style="color: white;">hello</span> - greet the user
+    <span style="color: white;">about</span> - about Nanskip
+    <span style="color: white;">contact</span> - contact Nanskip
+    <span style="color: white;">cubzh</span> - show cubzh website link
+    <span style="color: white;">bye</span> - don't say it
+    <span style="color: white;">amogus</span> - sussy
+    <span style="color: white;">sus</span> - sussy too
+                `;
+                break;
             case 'hello':
-                response = 'Hello! I am Nanskip!';
+                response = 'Hello!';
                 break;
             case 'about':
-                response = 'This is Nanskip\'s portfolio site. I create games and websites.';
+                response = 'This is Nanskip\'s portfolio site. I create games in <a href="https://www.cubzh.com" target="_blank" style="color: lightblue;">cubzh</a>.';
                 break;
             case 'contact':
-                response = 'You can contact me at [your email].';
+                response = 'You can contact me at nanskip.yt@gmail.com.';
+                break;
+            case 'amogus' || 'sus':
+                response = 'ඞ';
+                break;
+                case 'amogus':
+                    response = 'ඞඞඞ';
+                    break;
+            case 'bye':
+                response = `Don't leave me!`;
+                break;
+            case 'cubzh':
+                response = `Here's link to <a href="https://www.cubzh.com" target="_blank" style="color: lightblue;">cubzh website</a>.`;
                 break;
             default:
                 response = 'Unknown command.';
                 break;
         }
-        consoleOutputElement.innerHTML += `<div style="color: white; font-family: 'Lucida Console', Lucida Console, monospace;">${response}</div>`;
+        consoleResponseElement.innerHTML += `<div style="color: lightgray">${response}</div>`;
     };
 });
