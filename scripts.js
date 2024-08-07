@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
 @@*===*#\\_.:::::::::::._/&*===*@@@
 @@@@|#####|:::::::::::|&&&&&|@@@@@
 @@@@|#####|:::::::::::|&&&&&|@@@@@
-@@@@*=====*:::::::::::*=====*@@@@@
+@@@@*=====*===========*=====*@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@`;
 
         const welcomeMessageText = `
@@ -139,10 +139,11 @@ document.addEventListener('DOMContentLoaded', function() {
 All available commands:
 
     <span style="color: white;">help</span> - show this text
-    <span style="color: white;">hello</span> - greet the user
     <span style="color: white;">about</span> - about Nanskip
     <span style="color: white;">contact</span> - contact Nanskip
     <span style="color: white;">cubzh</span> - show cubzh website link
+    <span style="color: #F6FB75;">fortcubes</span> - show information about Fortcubes game
+    <span style="color: white;">hello</span> - greet the user
     <span style="color: white;">bye</span> - don't say it
     <span style="color: white;">amogus</span> - sussy
     <span style="color: white;">sus</span> - sussy too
@@ -168,6 +169,12 @@ All available commands:
                 break;
             case 'cubzh':
                 response = `Here's link to <a href="https://www.cubzh.com" target="_blank" style="color: lightblue;">cubzh website</a>.`;
+                break;
+            case 'fortcubes':
+                response = `<a href="https://app.cu.bzh/?worldID=0178802d-bbc8-4085-9a5c-12351a98d1b0" target="_blank" style="color: lightblue;">Fortcubes</a> is a fast and funny top-down shooter where players fight each other with different weapons.
+More information in <a href="https://discord.gg/cubzh" target="_blank" style="color: lightblue;">Discord</a>.
+<a href="https://github.com/sysfab/nsfworks/tree/main/games/fortcubes" target="_blank" style="color: lightblue;">GitHub repository</a> of Fortcubes.
+<a href="https://github.com/sysfab/nsfworks" target="_blank" style="color: lightblue;">GitHub repository</a> of NSFWorks team.`;
                 break;
             default:
                 response = 'Unknown command.';
