@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const consoleOutputElement = document.getElementById('consoleOutput');
     const consoleResponseElement = document.getElementById('consoleResponse');
     const consoleInputElement = document.getElementById('consoleInput');
-    consoleInputElement.style.outline = '1px solid gray';
+    consoleInputElement.style.outline = '1px solid #0d0d0d';
 
     const loadingSteps = [
         'main() = function{}',
@@ -120,8 +120,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const command = consoleInputElement.value.trim();
             consoleInputElement.value = '';
             processCommand(command);
+    
+            // Scroll to the bottom of the console output
+            const lastResponseElement = consoleResponseElement.lastElementChild;
+            if (lastResponseElement) {
+                lastResponseElement.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     });
+    
 
     const processCommand = (command) => {
         let response = '';
@@ -150,12 +157,12 @@ All available commands:
             case 'contact':
                 response = 'You can contact me at nanskip.yt@gmail.com.';
                 break;
-            case 'amogus' || 'sus':
+            case 'amogus':
                 response = 'ඞ';
                 break;
-                case 'amogus':
-                    response = 'ඞඞඞ';
-                    break;
+            case 'sus':
+                response = 'ඞඞඞ';
+                break;
             case 'bye':
                 response = `Don't leave me!`;
                 break;
