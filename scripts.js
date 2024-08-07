@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'site = {}',
         'site.load = function(self)',
         'site:load()',
-        '#Log: Site loading complete.'
+        '#Log: Site loading complete.',
+        '                            ',
     ];
 
     let currentStep = 0;
