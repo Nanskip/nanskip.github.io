@@ -1,46 +1,89 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const loaderWrapper = document.querySelector(".loader-wrapper");
-    const content = document.querySelector(".content");
-    const projects = document.querySelectorAll(".project");
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingTextElement = document.getElementById('loadingText');
+    const consoleElement = document.getElementById('console');
+    const consoleOutputElement = document.getElementById('consoleOutput');
+    const consoleInputElement = document.getElementById('consoleInput');
 
-    // Показываем контент, скрываем loaderWrapper
-    content.style.display = "block";
-    content.style.opacity = "1";
+    const loadingSteps = [
+        'main() = function{}',
+        'main()',
+        'site = {}',
+        'site.load = function(self)',
+        'site:load()',
+        '#Log: Site loading complete.'
+    ];
 
-    window.addEventListener("load", function() {
-        setTimeout(() => {
-            loaderWrapper.style.transition = "opacity 0.5s ease-in-out"; // Уменьшаем продолжительность анимации
-            loaderWrapper.style.opacity = "0";
+    let currentStep = 0;
+    let symbolChangeInterval = null;
+
+    const showFinalText = () => {
+        loadingTextElement.textContent = loadingSteps[currentStep];
+        currentStep++;
+        if (currentStep >= loadingSteps.length) {
+            clearInterval(symbolChangeInterval);
             setTimeout(() => {
-                loaderWrapper.style.display = "none";
-                animateProjects();
-            }, 500); // Уменьшаем продолжительность ожидания перед скрытием loaderWrapper
-        }, 1000); // Уменьшаем общую продолжительность ожидания после загрузки
-    });
-
-    function animateProjects() {
-        projects.forEach((project, index) => {
-            setTimeout(() => {
-                project.style.opacity = "1";
-                project.style.transform = "translateY(0)";
-            }, index * 300); // задержка между анимацией проектов
-        });
-    }
-
-    // Intersection Observer API для анимации элементов при прокрутке
-    const observerOptions = {
-        threshold: 0.1
+                document.getElementById('loader').style.display = 'none';
+                consoleElement.style.display = 'block';
+                displayWelcomeMessage();
+            }, 500);
+        } else {
+            setTimeout(updateLoadingText, 500);
+        }
     };
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, observerOptions);
+    const updateLoadingText = () => {
+        if (currentStep < loadingSteps.length) {
+            let charArray = loadingSteps[currentStep].split('');
+            symbolChangeInterval = setInterval(() => {
+                loadingTextElement.textContent = charArray.map(char => 
+                    Math.random() < 0.5 ? char : String.fromCharCode(33 + Math.floor(Math.random() * 94))
+                ).join('');
+            }, 10);
 
-    projects.forEach(project => {
-        observer.observe(project);
+            setTimeout(() => {
+                clearInterval(symbolChangeInterval);
+                showFinalText();
+            }, 200);
+        }
+    };
+
+    setTimeout(updateLoadingText, 1000);
+
+    const displayWelcomeMessage = () => {
+        const welcomeMessage = `
+        Welcome to Nanskip's portfolio site!
+        Here are some commands you can try:
+        - hello
+        - about
+        - contact
+        `;
+        consoleOutputElement.innerHTML = `<span style="color: lightgreen;">${welcomeMessage}</span>`;
+    };
+
+    consoleInputElement.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const command = consoleInputElement.value.trim();
+            consoleInputElement.value = '';
+            processCommand(command);
+        }
     });
+
+    const processCommand = (command) => {
+        let response = '';
+        switch(command.toLowerCase()) {
+            case 'hello':
+                response = 'Hello! I am Nanskip!';
+                break;
+            case 'about':
+                response = 'This is Nanskip\'s portfolio site. I create games and websites.';
+                break;
+            case 'contact':
+                response = 'You can contact me at [your email].';
+                break;
+            default:
+                response = 'Unknown command.';
+                break;
+        }
+        consoleOutputElement.innerHTML += `<div style="color: white; font-family: 'Lucida Console', Lucida Console, monospace;">${response}</div>`;
+    };
 });

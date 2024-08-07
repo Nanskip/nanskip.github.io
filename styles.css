@@ -1,162 +1,35 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #2c3e50, #4ca1af);
-    color: #ccdde9;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    background-color: black;
+    color: white;
+    font-family: "Lucida Console", Courier, monospace;
 }
 
-.loader-wrapper {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-}
-
-.loader {
-    border: 4px solid #f3f3f3; /* Light grey */
-    border-top: 4px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-
-.content {
-    display: none;
-    overflow: auto;
+#loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
 }
 
-header {
-    background: linear-gradient(to right, #263442, #2b585f);
-    color: #ccdde9;
-    padding: 1.5em 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+#loadingText {
+    font-size: 1.5em;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    animation: fadeInDown 2s ease-in-out;
+#console {
+    padding: 10px;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 2em 0;
+#consoleOutput {
+    margin-bottom: 10px;
 }
 
-.category {
-    margin-bottom: 2em;
-}
-
-.category h2 {
-    font-size: 2em;
-    border-bottom: 2px solid #1abc9c;
-    padding-bottom: 0.5em;
-    animation: fadeInLeft 1.5s ease-in-out;
-}
-
-.project {
-    background: linear-gradient(to right, #34495e, #4ca1af);
-    margin: 1.5em 0;
-    padding: 1.5em;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, opacity 1s ease-in-out;
-    opacity: 0;
-    transform: translateY(50px);
-}
-
-.project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(to left, #4ca1af, #34495e);
-}
-
-.project h3 {
-    margin-top: 0;
-}
-
-.project a {
-    text-decoration: none;
-    color: #1abc9c;
-}
-
-.project a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    background: linear-gradient(to right, #34495e, #2c3e50);
-    color: #ccdde9;
-    text-align: center;
-    padding: 1.5em 0;
-    margin-top: 2em;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 2s ease-in-out;
-}
-
-.social-links a {
-    margin: 0 15px;
-    color: #1abc9c;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-.social-links a:hover {
-    color: #16a085;
-}
-
-.social-links {
-    margin-bottom: 1em;
-}
-
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+#consoleInput {
+    width: 100%;
+    border: none;
+    background-color: black;
+    color: white;
+    font-family: "Lucida Console", Courier, monospace;
+    font-size: 1em;
 }

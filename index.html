@@ -1,55 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanskip's Projects</title>
+    <title>Nanskip's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="loader-wrapper">
-        <div class="loader"></div>
+    <div id="loader">
+        <pre id="loadingText"></pre>
     </div>
-    <div class="content">
-        <header>
-            <h1>Nanskip's Projects</h1>
-        </header>
-        <div class="container">
-            <section class="category">
-                <h2>Games made in Cubzh</h2>
-                <div class="project">
-                    <h3><a href="https://github.com/Nanskip/tech-game">Convy!</a></h3>
-                    <p>Biggest project i made. Build defence for your base with turrets, generators, mines and walls.</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/Nanskip/space-fly">Space Fly</a></h3>
-                    <p>Arcade game made in Cubzh, destroy colored asteroids and get upgrades.</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/Nanskip/project-cuboid">Project Cuboid</a></h3>
-                    <p>Game inspired by Project Zomboid. Still in development.</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/Nanskip/convy-2">Convy 2</a></h3>
-                    <p>Still in development, should be bigger than Convy.</p>
-                </div>
-            </section>
-            <section class="category">
-                <h2>Cubzh Modules</h2>
-                <div class="project">
-                    <h3><a href="https://github.com/Nanskip/cubzh-modules">Cubzh Modules</a></h3>
-                    <p>Modules made for Cubzh, anyone can use them in their projects.</p>
-                </div>
-            </section>
-        </div>
-        <footer>
-            <div class="social-links">
-                <a href="https://www.youtube.com/@Nanskip">YouTube</a> |
-                <a href="https://www.tiktok.com/@nanskip.of">TikTok</a> |
-                <a href="https://t.me/logovoskipa">Telegram</a>
-            </div>
-            <p>&copy; Rampampam, i am Nanskip lol.</p>
-        </footer>
+    <div id="console" style="display:none;">
+        <div id="consoleOutput"></div>
+        <input type="text" id="consoleInput" autofocus>
     </div>
     <script src="scripts.js"></script>
 </body>
