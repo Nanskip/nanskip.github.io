@@ -3,27 +3,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nanskip.dev</title>
+    <title>NANSKIP.DEV - SYSTEM v16.02.2007</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VCR+OSD+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <meta property="og:title" content="NANSKIP.DEV">
-    <meta property="og:description" content="Testing site made by nanskip.">
+    <meta property="og:description" content="SYSTEM v16.02.2007 - CALIBRATION: DONE">
     <meta property="og:image" content="https://media1.tenor.com/m/mPu5lB_ZyiUAAAAC/crunchy-cat-monkeycatluna.gif">
     <meta property="og:url" content="https://nanskip.dev">
     <meta property="og:type" content="website">
+
+    <script src="config.js"></script>
 </head>
 <body>
-    <div id="loader">
-        <pre id="loadingText"></pre>
-    </div>
-    <div id="console" style="display:none;">
-        <div id="consoleOutput" class="console-container">
-            <div id="asciiArt" class="ascii-art"></div>
-            <div id="asciiText" class="ascii-text"></div>
+    <div class="notification-container"></div>
+    <div class="cursor"></div>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-header">
+                <div class="loading-title">SYSTEM BOOT</div>
+                <div class="loading-version">v16.02.2007</div>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-text">INITIALIZING...</div>
+            </div>
+            <div class="loading-messages">
+                <div class="message">CHECKING SYSTEM INTEGRITY...</div>
+                <div class="message">LOADING MEMORY BANKS...</div>
+                <div class="message">INITIALIZING DISPLAY...</div>
+                <div class="message">ESTABLISHING NETWORK CONNECTION...</div>
+                <div class="message">LOADING USER INTERFACE...</div>
+            </div>
         </div>
-        <div id="consoleResponse" class="console-response"></div>
-        <input type="text" id="consoleInput" autofocus>
     </div>
+    <div class="crt-screen"></div>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    <div class="terminal-overlay"></div>
+    
+    <div id="loader">
+        <div class="terminal">
+            <div class="terminal-header">
+                <span class="terminal-title">SYSTEM INITIALIZATION</span>
+            </div>
+            <div class="terminal-content">
+                <div id="loadingText"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="terminal" class="terminal-window">
+        <div class="terminal-header">
+            <div class="terminal-controls">
+                <div class="terminal-control terminal-close" title="Close">X</div>
+                <div class="terminal-control terminal-minimize" title="Minimize">_</div>
+                <div class="terminal-control terminal-maximize" title="Maximize">▢</div>
+            </div>
+            <span class="terminal-title">SYSTEM TERMINAL v16.02.2007</span>
+        </div>
+        <div class="terminal-content">
+            <div id="terminal-output"></div>
+            <div class="terminal-input-line">
+                <span class="terminal-prompt">root@nanskipDEV:~$</span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
+    <button class="terminal-toggle">Open Terminal</button>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-text">NANSKIP.DEV</span>
+                <span class="status">SYSTEM v16.02.2007</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#skills" class="glitch-text">[SKILLS]</a></li>
+                <li><a href="#art" class="glitch-text">[ART]</a></li>
+                <li><a href="#work" class="glitch-text">[WORK]</a></li>
+                <li><a href="#games" class="glitch-text">[GAMES]</a></li>
+                <li><a href="#about" class="glitch-text">[ABOUT]</a></li>
+                <li><a href="#contact" class="glitch-text">[CONTACT]</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="glitch-text">NANSKIP</h1>
+                <div class="subtitle">
+                    <span class="typewriter">JUNIOR GAME DEVELOPER</span>
+                    <span class="cursor">_</span>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-label">SYSTEM STATUS</span>
+                        <span class="stat-value">ONLINE</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">LOCATION</span>
+                        <span class="stat-value">POLAND</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">SPECIALIZATION</span>
+                        <span class="stat-value">GAME DEV</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">FACE</span>
+                        <span class="stat-value">NOT FOUND</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">VERSION</span>
+                        <span class="stat-value">16.02.2007</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">MEMORY</span>
+                        <span class="stat-value">8GB/16GB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="section-header">
+                <h2 class="glitch-text">[SKILLS & EXPERTISE]</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="glitch-text">PROGRAMMING</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Lua</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="glitch-text">GAME DEVELOPMENT</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Cubzh</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Unity</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">3D Modeling</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="art" class="section">
+            <div class="section-header">
+                <h2 class="glitch-text">[ART GALLERY]</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="gallery-item-inner">
+                        <img src="NEW SITE/some images/coin_render.png" alt="Coin 3D Model">
+                        <div class="gallery-item-info">
+                            <h3 class="glitch-text">GOLDEN COIN</h3>
+                            <p class="typing">A concept render of a golden coin.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-inner">
+                        <img src="NEW SITE/some images/tesla_turret_render.png" alt="Tesla Turret 3D Model">
+                        <div class="gallery-item-info">
+                            <h3 class="glitch-text">TESLA TURRET</h3>
+                            <p class="typing">A concept render of a Tesla Turret.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-inner">
+                        <img src="NEW SITE/some images/blip_trashcan_render.png" alt="Trashcan 3D Model">
+                        <div class="gallery-item-info">
+                            <h3 class="glitch-text">TRASHCAN</h3>
+                            <p class="typing">A concept render of a trashcan with trash bags.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="section">
+            <div class="section-header">
+                <h2 class="glitch-text">[PROFESSIONAL WORK]</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="work-grid">
+                <div class="work-item">
+                    <div class="work-header">
+                        <h3 class="glitch-text">FORT CUBES</h3>
+                        <span class="work-date">2023</span>
+                    </div>
+                    <div class="work-content">
+                        <p>A fast-paced top-down shooter game developed in Cubzh. Features multiple weapons, power-ups, and competitive gameplay.</p>
+                        <div class="work-tech">
+                            <span class="tech-tag">Lua</span>
+                            <span class="tech-tag">Cubzh</span>
+                            <span class="tech-tag">Game Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="games" class="section">
+            <div class="section-header">
+                <h2 class="glitch-text">[GAME DEVELOPMENT]</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="games-grid">
+                <div class="game-item">
+                    <div class="game-header">
+                        <h3 class="glitch-text">FORT CUBES</h3>
+                        <span class="game-status">RELEASED</span>
+                    </div>
+                    <div class="game-content">
+                        <p>A competitive multiplayer shooter with unique mechanics and fast-paced gameplay.</p>
+                        <div class="game-links">
+                            <a href="https://app.cu.bzh/?worldID=0178802d-bbc8-4085-9a5c-12351a98d1b0" target="_blank" class="game-link">PLAY NOW</a>
+                            <a href="https://github.com/sysfab/nsfworks/tree/main/games/fortcubes" target="_blank" class="game-link">SOURCE CODE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2 class="glitch-text">[ABOUT ME]</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-title">SYSTEM INFO</span>
+                    </div>
+                    <div class="terminal-content">
+                        <p class="typing">I am Nanskip - a 18 year old game developer from Ukraine currently living in Poland. I've been interested in game development since I was 10 years old. Had a few projects in my life, but never finished them. Now I'm trying to change that and find a job in the game development industry.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="section-header">
+                <h2 class="glitch-text">[CONTACT]</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-label">EMAIL</span>
+                        <a href="mailto:nanskip.yt@gmail.com" class="contact-value">nanskip.yt@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">DISCORD</span>
+                        <span class="contact-value">nansk1p</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">AVAILABILITY</span>
+                        <span class="contact-value">OPEN TO WORK</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/Nanskip" target="_blank" class="social-link">
+                <span class="github-icon" title="GitHub"></span>
+                <span class="glitch-text">GITHUB</span>
+            </a>
+            <a href="https://x.com/nansk1p" target="_blank" class="social-link">
+                <span class="x-icon" title="X"></span>
+                <span class="glitch-text">X</span>
+            </a>
+        </div>
+        <p class="footer-text">&copy; 2024 NANSKIP.DEV - SYSTEM v16.02.2007</p>
+    </footer>
+
     <script src="scripts.js"></script>
+    <script>
+        const terminal = {
+            output: document.getElementById('terminal-output'),
+            input: document.getElementById('terminal-input'),
+            prompt: 'root@nanskipDEV:~$',
+            history: [],
+            historyIndex: -1,
+            
+            init() {
+                this.input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        this.executeCommand(this.input.value);
+                        this.input.value = '';
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        this.navigateHistory('up');
+                    } else if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        this.navigateHistory('down');
+                    }
+                });
+                
+                this.printWelcome();
+            },
+            
+            printWelcome() {
+                this.print('Welcome to NANSKIP.DEV Terminal');
+                this.print('Type "help" for available commands');
+                this.print('');
+            },
+            
+            executeCommand(cmd) {
+                this.print(`${this.prompt} ${cmd}`);
+                this.history.push(cmd);
+                this.historyIndex = this.history.length;
+                
+                const command = cmd.toLowerCase().trim();
+                let response = '';
+                
+                switch(command) {
+                    case 'help':
+                        response = `
+Available commands:
+- help: Show this help message
+- about: Display information about Nanskip
+- skills: Show technical skills
+- projects: List current projects
+- contact: Display contact information
+- clear: Clear terminal
+- matrix: Toggle matrix effect
+- vhs: Toggle VHS effect
+                        `;
+                        break;
+                    case 'about':
+                        response = 'Nanskip is a game developer specializing in Lua and Cubzh development.';
+                        break;
+                    case 'skills':
+                        response = `
+Technical Skills:
+- Lua (Expert)
+- Python (Advanced)
+- JavaScript (Intermediate)
+- Game Development
+- 3D Modeling
+                        `;
+                        break;
+                    case 'projects':
+                        response = `
+Current Projects:
+- Fort Cubes (Released)
+- More coming soon...
+                        `;
+                        break;
+                    case 'contact':
+                        response = `
+Contact Information:
+- Email: nanskip.yt@gmail.com
+- Discord: nansk1p
+- GitHub: github.com/Nanskip
+                        `;
+                        break;
+                    case 'clear':
+                        this.output.innerHTML = '';
+                        return;
+                    case 'matrix':
+                        document.querySelector('canvas').style.opacity = 
+                            document.querySelector('canvas').style.opacity === '0.1' ? '0' : '0.1';
+                        response = 'Matrix effect toggled';
+                        break;
+                    case 'vhs':
+                        document.querySelector('.crt-screen').style.opacity = 
+                            document.querySelector('.crt-screen').style.opacity === '1' ? '0' : '1';
+                        response = 'VHS effect toggled';
+                        break;
+                    default:
+                        response = `Command not found: ${cmd}. Type "help" for available commands.`;
+                }
+                
+                this.print(response);
+            },
+            
+            print(text) {
+                const line = document.createElement('div');
+                line.innerHTML = text;
+                this.output.appendChild(line);
+                this.output.scrollTop = this.output.scrollHeight;
+            },
+            
+            navigateHistory(direction) {
+                if (direction === 'up' && this.historyIndex > 0) {
+                    this.historyIndex--;
+                    this.input.value = this.history[this.historyIndex];
+                } else if (direction === 'down' && this.historyIndex < this.history.length - 1) {
+                    this.historyIndex++;
+                    this.input.value = this.history[this.historyIndex];
+                }
+            }
+        };
+        
+        document.addEventListener('DOMContentLoaded', () => terminal.init());
+    </script>
 </body>
 </html>
